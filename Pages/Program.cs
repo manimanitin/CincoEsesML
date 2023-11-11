@@ -3,12 +3,13 @@ using static CincoEsesML.QualityModel;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPredictionEnginePool<ModelInput, ModelOutput>()
-    .FromFile("QualityModel.zip");
+    .FromFile("../CincoEsesML/QualityModel.zip");
 // Add services to the container.
-builder.Services.AddRazorPages();
 
+builder.Services.AddRazorPages()
+    .AddRazorRuntimeCompilation();
 var app = builder.Build();
-
+app.UseStatusCodePagesWithReExecute("/Error");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -19,7 +20,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseDeveloperExceptionPage();
 app.UseRouting();
 
 app.UseAuthorization();

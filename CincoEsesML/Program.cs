@@ -12,4 +12,3 @@ QualityModel.ModelInput sampleData = new QualityModel.ModelInput()
 var result = QualityModel.Predict(sampleData);
 
 Console.WriteLine("\n" + result.PredictedLabel);
-
