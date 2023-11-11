@@ -11,6 +11,19 @@
 
     <p><textarea id="Message" cols="45" placeholder="Type any text like a short review"></textarea></p>
 
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label asp-for="ImageFile"></label>
+            <input asp-for="ImageFile" type="file" />
+            <span asp-validation-for="ImageFile"></span>
+        </div>
+        <button type="submit">Upload Image</button>
+    </form>
+
+
+    <img src="@TempData["ImagePath"]" alt="Uploaded Image" />
+
+
     <div class="sentiment">
         <h4>Your sentiment is...</h4>
         <p>😡 😐 😍</p>
@@ -22,4 +35,6 @@
             </div>
         </div>
     </div>
+
+    <p>@TempData["calidad"]</p>
 </div>
