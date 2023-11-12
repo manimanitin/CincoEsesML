@@ -7,34 +7,22 @@
 
 
 <div class="text-center">
-    <h2>Live Sentiment</h2>
+    <h2>Quality Lens</h2>
 
-    <p><textarea id="Message" cols="45" placeholder="Type any text like a short review"></textarea></p>
 
     <form method="post" enctype="multipart/form-data">
-        <div>
-            <label asp-for="ImageFile"></label>
+        <div class="mt-1">
             <input asp-for="ImageFile" type="file" />
             <span asp-validation-for="ImageFile"></span>
         </div>
-        <button type="submit">Upload Image</button>
+        <button class="btn btn-primary mt-5 " type="submit">Analizar</button>
     </form>
 
-
-    <img src="@TempData["ImagePath"]" alt="Uploaded Image" />
-
-
-    <div class="sentiment">
-        <h4>Your sentiment is...</h4>
-        <p>😡 😐 😍</p>
-
-        <div class="marker">
-            <div id="markerPosition" style="left: 45%;">
-                <div>▲</div>
-                <label id="markerValue">Neutral</label>
-            </div>
-        </div>
+    <div class="mt-5">
+        <img class="img-fluid" src="@TempData["ImagePath"]" width="250" height="250" />
     </div>
+    <div class="mt-1">
 
-    <p>@TempData["calidad"]</p>
+        <p>@TempData["calidad"]</p>
+    </div>
 </div>

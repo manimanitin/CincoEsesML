@@ -58,6 +58,7 @@ namespace Pages.Pages
 
             var input = new ModelInput { ImageSource = imageBytes };
             var prediction = _predictionEnginePool.Predict(input);
+            
             var sentiment = prediction.PredictedLabel == "Seguro" ? "Seguro" : "No Seguro";
             TempData["calidad"] = sentiment;
 
